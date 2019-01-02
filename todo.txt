@@ -12,3 +12,7 @@
 - manage products
 - manage users
 
+# docker
+- create Dockerfile
+- push image to hub.docker.com
+- create docker-compose.yml
