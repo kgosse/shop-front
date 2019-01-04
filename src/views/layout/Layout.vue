@@ -1,13 +1,18 @@
 <template>
-<div></div>
+<div>
+  <navbar />
+  <app-main />
+</div>
 </template>
 
 <script>
-// import { Navbar, Sidebar, AppMain } from './components'
+import { Navbar, AppMain } from './components'
 
 export default {
   name: 'Layout',
   components: {
+    Navbar,
+    AppMain
   },
   computed: {
   },
