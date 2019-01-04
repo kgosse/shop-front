@@ -1,4 +1,4 @@
-- use Element: https://element.eleme.io/#/en-US
+- use Element: https://element.eleme.io/#/en-US(done)
 
 # front-section (regular users)
 - add default layout
