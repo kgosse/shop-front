@@ -20,6 +20,11 @@ export default {
   computed: {
   },
   methods: {
+  },
+  data() {
+    return {
+      input: ''
+    }
   }
 }
 </script>

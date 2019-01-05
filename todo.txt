@@ -7,7 +7,7 @@
   - add appmain
     - add test content(done)
     - create component for /
-      - make header
+      - make header(done)
       - make product card
     - create component for /wishlist
   - add footer
