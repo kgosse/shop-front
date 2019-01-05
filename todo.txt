@@ -3,7 +3,7 @@
 # front-section (regular users)
 - add default layout
   - add navbar
-    - move NavBar.vue to src/component
+    - move NavBar.vue to src/component(done)
   - add appmain
   - add footer
 - handle log in
