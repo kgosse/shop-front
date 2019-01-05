@@ -5,6 +5,11 @@
   - add navbar
     - move NavBar.vue to src/component(done)
   - add appmain
+    - add test content
+    - create component for /
+      - make header
+      - make product card
+    - create component for /wishlist
   - add footer
 - handle log in
 - handle sign up
