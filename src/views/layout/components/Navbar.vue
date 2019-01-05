@@ -1,21 +1,14 @@
 <template>
-<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-  <el-menu-item index="1">Processing Center</el-menu-item>
-  <el-submenu index="2">
-    <template slot="title">Workspace</template>
-    <el-menu-item index="2-1">item one</el-menu-item>
-    <el-menu-item index="2-2">item two</el-menu-item>
-    <el-menu-item index="2-3">item three</el-menu-item>
-    <el-submenu index="2-4">
-      <template slot="title">item four</template>
-      <el-menu-item index="2-4-1">item one</el-menu-item>
-      <el-menu-item index="2-4-2">item two</el-menu-item>
-      <el-menu-item index="2-4-3">item three</el-menu-item>
-    </el-submenu>
-  </el-submenu>
-  <el-menu-item index="3" disabled>Info</el-menu-item>
-  <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">Orders</a></el-menu-item>
-</el-menu>
+<div class="header">
+  <div>Vue-Shop</div>
+  <div>
+    <el-input placeholder="Please input" v-model="input"></el-input>
+  </div>
+  <div>
+    <el-button>Sign up</el-button>  
+    <el-button>Log in</el-button>
+  </div>
+</div>
 </template>
 
 <script>
@@ -32,5 +25,10 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
 </style>
 
