@@ -29,8 +29,8 @@ export default {
     justify-content: center;
     max-width: 960px;
     width: 960px;
-    padding-bottom: 9rem;
-    padding-top: 9rem;
+    padding-bottom: 6rem;
+    padding-top: 6rem;
     .title {
       margin-bottom: 1.5rem;
       font-size: 2rem;
