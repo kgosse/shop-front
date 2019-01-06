@@ -8,7 +8,7 @@
     - add test content(done)
     - create component for /
       - make header(done)
-      - make product card
+      - make product card(done)
     - create component for /wishlist
   - add footer
 - handle log in

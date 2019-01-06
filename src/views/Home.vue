@@ -1,36 +1,50 @@
 <template>
   <div class="home">
     <div class="head">
-      <p class="title">Free ecommerce template for Vue.js projects</p>
-      <p class="subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima iste aspernatur. </p>
+      <div class="head__body">
+        <p class="title">Free ecommerce template for Vue.js projects</p>
+        <p class="subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima iste aspernatur. </p>
+      </div>
     </div>
-    <div class="body"></div>
+    <div class="body">
+      <el-row :gutter="20" type="flex" justify="center">
+        <el-col :span="8" v-for="o in 8" :key="o" >
+          <product />
+        </el-col>
+      </el-row>
+    </div>
+
   </div>
 </template>
 
 <script>
+import Product from '@/components/Product'
 
 export default {
   name: 'home',
   components: {
+    Product
   }
 }
 </script>
 
 <style lang="scss" scoped>
+
 .home {
-  background: #51bafc;
-  color: #fff;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   .head {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    max-width: 960px;
-    width: 960px;
-    padding-bottom: 6rem;
-    padding-top: 6rem;
+    background: #51bafc;
+    color: #fff;
+    &__body {
+      max-width: 960px;
+      width: 960px;
+      padding-bottom: 6rem;
+      padding-top: 6rem;
+    }
     .title {
       margin-bottom: 1.5rem;
       font-size: 2rem;
@@ -45,5 +59,21 @@ export default {
       margin-top: -1.25rem;
     }
   }
+  .body {
+    padding: 1em;
+    width: 75vw;
+    align-self: center;
+
+    .el-row {
+      flex-wrap: wrap;
+    }
+  }
+
+  .el-col-8 {
+    margin-bottom: 2em;
+  }
 }
+
+
+
 </style>
