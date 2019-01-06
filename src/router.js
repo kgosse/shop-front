@@ -12,10 +12,16 @@ export default new Router({
     {
       path: '/',
       component: Layout,
-      children: [{
-        path: '',
-        component: () => import('@/views/Home')
-      }]
+      children: [
+        {
+          path: '',
+          component: () => import('@/views/Home')
+        },
+        {
+          path: '/wishlist',
+          component: () => import('@/views/Wishlist')
+        }
+      ]
     },
   ]
 })
