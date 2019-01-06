@@ -36,6 +36,10 @@ export default {
   &__body {
     padding: 0 1.5em;
   }
+
+  .el-col-8 {
+    margin-bottom: 2em;
+  }
 }
 </style>
 
