@@ -12,16 +12,22 @@
     - create component for /wishlist(done)
   - add footer(done)
 - redirect logo to home(done)
-- handle sign up
-  - create a dialog(done)
-  - open a dialog on click
-  - add sign up form
-- handle log in
-- handle click on product - product view
-- cart
-  - add cart icon
-  - handle addToCart
-  - display cart
+- create modals
+  - handle sign up
+    - create a dialog(done)
+    - open a dialog on click
+    - add sign up form
+  - log in
+  - product view
+  - checkout
+  - cart
+- manage state
+  - check docs: https://vuex.vuejs.org/
+  - check examples: https://github.com/vuejs/vuex/tree/dev/examples/shopping-cart
+  - sign up
+  - log in
+  - cart
+  - ...
 
 # admin-section
 - add login page

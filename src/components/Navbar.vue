@@ -21,7 +21,7 @@ export default {
   },
   methods: {
 		showSignupModal () {
-			// this.$store.commit('showSignupModal', true);
+			// this.$store.toggleRegistrationForm(true);
 		}
   },
   data() {

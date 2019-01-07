@@ -22,7 +22,7 @@ const app = {
     },
   },
   actions: {
-    toggleRegistrationForm: ({commit}, val) => {
+    toggleRegistrationForm: ({commit}, val = false) => {
       commit('TOGGLE_REGISTRATION_FORM', val)
     },
     ToggleSideBar: ({ commit }) => {
