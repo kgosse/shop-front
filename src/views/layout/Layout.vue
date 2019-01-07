@@ -2,18 +2,21 @@
 <div>
   <navbar />
   <app-main />
+  <footer-component />
 </div>
 </template>
 
 <script>
 import { AppMain } from './components'
 import Navbar from '@/components/Navbar'
+import Footer from '../Footer'
 
 export default {
   name: 'Layout',
   components: {
     Navbar,
-    AppMain
+    AppMain,
+    'footer-component': Footer,
   },
   computed: {
   },

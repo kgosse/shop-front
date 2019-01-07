@@ -10,7 +10,7 @@
       - make header(done)
       - make product card(done)
     - create component for /wishlist(done)
-  - add footer
+  - add footer(done)
 - handle log in
 - handle sign up
 - display products
