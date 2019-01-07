@@ -14,7 +14,11 @@
 - redirect logo to home(done)
 - handle log in
 - handle sign up
-- display products
+- handle click on product - product view
+- cart
+  - add cart icon
+  - handle addToCart
+  - display cart
 
 # admin-section
 - add login page
