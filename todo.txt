@@ -6,7 +6,7 @@
     - move NavBar.vue to src/component(done)
   - add appmain
     - add test content(done)
-    - create component for /
+    - create component for /(done)
       - make header(done)
       - make product card(done)
     - create component for /wishlist(done)
