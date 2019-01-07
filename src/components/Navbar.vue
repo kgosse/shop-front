@@ -1,6 +1,6 @@
 <template>
 <div class="header">
-  <div>Vue-Shop</div>
+  <router-link :to="{path: '/'}">Vue-Shop</router-link>
   <div>
     <el-input placeholder="Please input" v-model="input"></el-input>
   </div>
@@ -34,6 +34,7 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
+  align-items: center;
 }
 </style>
 
