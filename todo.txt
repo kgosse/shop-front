@@ -1,7 +1,7 @@
 - use Element: https://element.eleme.io/#/en-US(done)
 
 # front-section (regular users)
-- add default layout
+- add default layout(done)
   - add navbar
     - move NavBar.vue to src/component(done)
   - add appmain
@@ -12,8 +12,11 @@
     - create component for /wishlist(done)
   - add footer(done)
 - redirect logo to home(done)
-- handle log in
 - handle sign up
+  - create a dialog(done)
+  - open a dialog on click
+  - add sign up form
+- handle log in
 - handle click on product - product view
 - cart
   - add cart icon
