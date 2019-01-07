@@ -20,6 +20,9 @@ export default {
   computed: {
   },
   methods: {
+		showSignupModal () {
+			// this.$store.commit('showSignupModal', true);
+		}
   },
   data() {
     return {
