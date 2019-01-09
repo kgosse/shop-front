@@ -1,20 +1,30 @@
 <template>
- <el-dialog title="Shipping address" :visible.sync="dialogFormVisible">
-  <el-form :model="form">
-    <el-form-item label="Promotion name" :label-width="formLabelWidth">
-      <el-input v-model="form.name" autocomplete="off"></el-input>
+ <el-dialog title="Sign up" :visible.sync="dialogFormVisible">
+  <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="120px" class="demo-ruleForm">
+    <el-form-item label="Name">
+      <el-input v-model="ruleForm2.name"></el-input>
     </el-form-item>
-    <el-form-item label="Zones" :label-width="formLabelWidth">
-      <el-select v-model="form.region" placeholder="Please select a zone">
-        <el-option label="Zone No.1" value="shanghai"></el-option>
-        <el-option label="Zone No.2" value="beijing"></el-option>
-      </el-select>
+    <el-form-item
+      prop="email"
+      label="Email"
+      :rules="[
+        { required: true, message: 'Please input email address', trigger: 'blur' },
+        { type: 'email', message: 'Please input correct email address', trigger: ['blur', 'change'] }
+      ]"
+    >
+      <el-input v-model="ruleForm2.email"></el-input>
+    </el-form-item>
+    <el-form-item label="Password" prop="pass">
+      <el-input type="password" v-model="ruleForm2.pass" autocomplete="off"></el-input>
+    </el-form-item>
+    <el-form-item label="Confirm" prop="checkPass">
+      <el-input type="password" v-model="ruleForm2.checkPass" autocomplete="off"></el-input>
+    </el-form-item>
+    <el-form-item>
+      <el-button type="primary" @click="submitForm('ruleForm2')">Submit</el-button>
+      <el-button @click="resetForm('ruleForm2')">Reset</el-button>
     </el-form-item>
   </el-form>
-  <span slot="footer" class="dialog-footer">
-    <el-button @click="dialogFormVisible = false">Cancel</el-button>
-    <el-button type="primary" @click="dialogFormVisible = false">Confirm</el-button>
-  </span>
 </el-dialog> 
 </template>
 
@@ -22,38 +32,78 @@
 export default {
   name: 'registration-component',
   data() {
-    return {
-      gridData: [{
-        date: '2016-05-02',
-        name: 'John Smith',
-        address: 'No.1518,  Jinshajiang Road, Putuo District'
-      }, {
-        date: '2016-05-04',
-        name: 'John Smith',
-        address: 'No.1518,  Jinshajiang Road, Putuo District'
-      }, {
-        date: '2016-05-01',
-        name: 'John Smith',
-        address: 'No.1518,  Jinshajiang Road, Putuo District'
-      }, {
-        date: '2016-05-03',
-        name: 'John Smith',
-        address: 'No.1518,  Jinshajiang Road, Putuo District'
-      }],
-      dialogFormVisible: true,
-      form: {
-        name: '',
-        region: '',
-        date1: '',
-        date2: '',
-        delivery: false,
-        type: [],
-        resource: '',
-        desc: ''
-      },
-      formLabelWidth: '120px'
-    };
-    }  
+      var checkAge = (rule, value, callback) => {
+        if (!value) {
+          return callback(new Error('Please input the age'));
+        }
+        setTimeout(() => {
+          if (!Number.isInteger(value)) {
+            callback(new Error('Please input digits'));
+          } else {
+            if (value < 18) {
+              callback(new Error('Age must be greater than 18'));
+            } else {
+              callback();
+            }
+          }
+        }, 1000);
+      };
+      var validatePass = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('Please input the password'));
+        } else {
+          if (this.ruleForm2.checkPass !== '') {
+            this.$refs.ruleForm2.validateField('checkPass');
+          }
+          callback();
+        }
+      };
+      var validatePass2 = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('Please input the password again'));
+        } else if (value !== this.ruleForm2.pass) {
+          callback(new Error('Two inputs don\'t match!'));
+        } else {
+          callback();
+        }
+      };
+      return {
+        ruleForm2: {
+          name: '',
+          pass: '',
+          checkPass: '',
+          email: '',
+        },
+        rules2: {
+          pass: [
+            { validator: validatePass, trigger: 'blur' }
+          ],
+          checkPass: [
+            { validator: validatePass2, trigger: 'blur' }
+          ],
+          age: [
+            { validator: checkAge, trigger: 'blur' }
+          ]
+        },
+        dialogFormVisible: false,
+      };
+  },
+  methods: {
+    submitForm(formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          alert('submit!');
+        } else {
+          // eslint-disable-next-line
+          console.log('error submit!!');
+          return false;
+        }
+      });
+    },
+    resetForm(formName) {
+      this.$refs[formName].resetFields();
+    }
+  }
 }
 </script>
 

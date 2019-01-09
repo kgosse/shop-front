@@ -15,8 +15,7 @@
 - create modals
   - handle sign up
     - create a dialog(done)
-    - open a dialog on click
-    - add sign up form
+    - add sign up form(done)
   - log in
   - product view
   - checkout
