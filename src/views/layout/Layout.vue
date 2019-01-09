@@ -2,7 +2,8 @@
 <div>
   <navbar />
   <app-main />
-  <registration />
+  <registration-modal-component />
+  <login-modal-component />
   <footer-component />
 </div>
 </template>
@@ -12,13 +13,15 @@ import { AppMain } from './components';
 import Navbar from '@/components/Navbar';
 import Footer from '../Footer';
 import Registration from '../modal/Registration';
+import Login from '../modal/Login';
 
 export default {
   name: 'Layout',
   components: {
     Navbar,
     AppMain,
-    Registration,
+    'registration-modal-component': Registration,
+    'login-modal-component': Login,
     'footer-component': Footer,
   },
   computed: {
