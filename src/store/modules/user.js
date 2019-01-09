@@ -1,9 +1,8 @@
-import { login, logout, getInfo } from '@/api/login'
 // import { getToken, setToken, removeToken } from '@/utils/auth'
 
 const user = {
   state: {
-    token: getToken(),
+    token: '',
     name: 'Kévin',
     avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
     roles: []
@@ -25,17 +24,6 @@ const user = {
   },
 
   actions: {
-    Login({ commit }, userInfo) {
-    },
-
-    GetInfo({ commit, state }) {
-    },
-
-    LogOut({ commit, state }) {
-    },
-
-    FedLogOut({ commit }) {
-    }
   }
 }
 

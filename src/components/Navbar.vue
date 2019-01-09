@@ -6,13 +6,13 @@
   </div>
   <div>
     <el-button>Sign up</el-button>  
-    <el-button>Log in</el-button>
+    <el-button @click="showLoginModal(true)">Log in</el-button>
   </div>
 </div>
 </template>
 
 <script>
-// import { mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   components: {
@@ -20,9 +20,13 @@ export default {
   computed: {
   },
   methods: {
-		showSignupModal () {
-			// this.$store.toggleRegistrationForm(true);
-		}
+    ...mapActions({
+      showRegistrationModal: 'toggleRegistrationModal',
+      showLoginModal: 'toggleLoginModal',
+    })
+		// showSignupModal () {
+		// 	// this.$store.toggleRegistrationForm(true);
+		// }
   },
   data() {
     return {

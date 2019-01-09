@@ -1,5 +1,5 @@
 <template>
- <el-dialog title="Log in" :visible.sync="dialogFormVisible">
+ <el-dialog title="Log in" :visible.sync="isOpen">
   <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="120px" class="demo-ruleForm">
     <el-form-item
       prop="email"
@@ -23,6 +23,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'login-component',
   data() {
@@ -60,6 +62,11 @@ export default {
         },
         dialogFormVisible: true,
       };
+  },
+  computed: {
+    ...mapState({
+      isOpen: state => state.app.modals.login.isOpen
+    }),
   },
   methods: {
     submitForm(formName) {
