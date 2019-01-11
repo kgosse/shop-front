@@ -1,5 +1,5 @@
 <template>
- <el-dialog title="Log in" :visible.sync="isOpen">
+ <el-dialog title="Log in" :visible.sync="isOpen" :before-close="showLoginModal">
   <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="120px" class="demo-ruleForm">
     <el-form-item
       prop="email"
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'login-component',
@@ -66,22 +66,24 @@ export default {
   computed: {
     ...mapState({
       isOpen: state => state.app.modals.login.isOpen
-    }),
+    })
   },
   methods: {
+    ...mapActions({
+      showLoginModal: 'app/toggleLoginModal',
+    }),
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           alert('submit!');
         } else {
-          // eslint-disable-next-line
-          console.log('error submit!!');
           return false;
         }
       });
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
+      this.showLoginModal({isOpen: false});
     }
   }
 }

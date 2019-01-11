@@ -18,7 +18,7 @@ const actions = {
     commit('TOGGLE_REGISTRATION_FORM', isOpen)
   },
   toggleLoginModal: ({commit}, {isOpen = false}) => {
-    commit('TOGGLE_LOGIN_FORM', isOpen)
+    commit('TOGGLE_LOGIN_MODAL', isOpen)
   },
 };
 
@@ -26,10 +26,10 @@ const actions = {
 // mutations
 const mutations = {
   TOGGLE_REGISTRATION_MODAL: (state, payload) => {
-    state.modals.registration = payload.isOpen
+    state.modals.registration.isOpen = payload.isOpen
   },
   TOGGLE_LOGIN_MODAL: (state, payload) => {
-    state.modals.login = payload.isOpen
+    state.modals.login.isOpen = payload;
   },
 };
 

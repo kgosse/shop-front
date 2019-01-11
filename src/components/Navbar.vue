@@ -6,7 +6,7 @@
   </div>
   <div>
     <el-button>Sign up</el-button>  
-    <el-button @click="showLoginModal(true)">Log in</el-button>
+    <el-button @click="showLoginModal({isOpen: true})">Log in</el-button>
   </div>
 </div>
 </template>
@@ -22,7 +22,7 @@ export default {
   methods: {
     ...mapActions({
       showRegistrationModal: 'toggleRegistrationModal',
-      showLoginModal: 'toggleLoginModal',
+      showLoginModal: 'app/toggleLoginModal',
     })
 		// showSignupModal () {
 		// 	// this.$store.toggleRegistrationForm(true);
