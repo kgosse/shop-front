@@ -2,9 +2,9 @@
 
 # front-section (regular users)
 - add default layout(done)
-  - add navbar
+  - add navbar(done)
     - move NavBar.vue to src/component(done)
-  - add appmain
+  - add appmain(done)
     - add test content(done)
     - create component for /(done)
       - make header(done)
@@ -12,15 +12,22 @@
     - create component for /wishlist(done)
   - add footer(done)
 - redirect logo to home(done)
+* add product view
 - manage state
   - check docs: https://vuex.vuejs.org/ (done)
   - check examples:
     https://github.com/vuejs/vuex/tree/dev/examples/shopping-cart (done)
   - toggle log in modal(done)
-  * toggle sign up modal
-  - cart
+  - toggle sign up modal(done)
   - ...
-- add product view
+- navbar
+  - handle login
+    - show new menu when connected
+    - handle login button
+  - handle logout
+  - handle sign up
+  - add cart icon/button
+  - handle click on cart
 - create modals
   - handle sign up
     - create a dialog(done)

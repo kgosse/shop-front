@@ -1,5 +1,5 @@
 <template>
- <el-dialog title="Sign up" :visible.sync="dialogFormVisible">
+ <el-dialog title="Sign up" :visible.sync="isOpen" :before-close="showRegistrationModal">
   <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="120px" class="demo-ruleForm">
     <el-form-item label="Name">
       <el-input v-model="ruleForm2.name"></el-input>
@@ -29,6 +29,8 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex';
+
 export default {
   name: 'registration-component',
   data() {
@@ -88,20 +90,27 @@ export default {
         dialogFormVisible: false,
       };
   },
+  computed: {
+    ...mapState({
+      isOpen: state => state.app.modals.registration.isOpen
+    })
+  },
   methods: {
+    ...mapActions({
+      showRegistrationModal: 'app/toggleRegistrationModal',
+    }),
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           alert('submit!');
         } else {
-          // eslint-disable-next-line
-          console.log('error submit!!');
           return false;
         }
       });
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
+      this.showRegistrationModal({isOpen: false});
     }
   }
 }

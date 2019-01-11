@@ -5,7 +5,7 @@
     <el-input placeholder="Please input" v-model="input"></el-input>
   </div>
   <div>
-    <el-button>Sign up</el-button>  
+    <el-button @click="showRegistrationModal({isOpen: true})">Sign up</el-button>  
     <el-button @click="showLoginModal({isOpen: true})">Log in</el-button>
   </div>
 </div>
@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      showRegistrationModal: 'toggleRegistrationModal',
+      showRegistrationModal: 'app/toggleRegistrationModal',
       showLoginModal: 'app/toggleLoginModal',
     })
 		// showSignupModal () {
