@@ -9,7 +9,9 @@
     <div class="body">
       <el-row :gutter="20" type="flex" justify="center">
         <el-col :span="8" v-for="o in 8" :key="o" >
-          <product />
+          <router-link :to="{path: '/products/1'}">
+            <product />
+          </router-link>
         </el-col>
       </el-row>
     </div>

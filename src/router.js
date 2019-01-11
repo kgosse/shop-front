@@ -20,7 +20,12 @@ export default new Router({
         {
           path: '/wishlist',
           component: () => import('@/views/Wishlist')
-        }
+        },
+        {
+          path: '/products/:id',
+          name: 'product-view',
+          component: () => import('@/views/Product'),
+        },
       ]
     },
   ]

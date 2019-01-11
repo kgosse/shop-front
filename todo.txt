@@ -12,7 +12,7 @@
     - create component for /wishlist(done)
   - add footer(done)
 - redirect logo to home(done)
-* add product view
+- add product view(done)
 - manage state
   - check docs: https://vuex.vuejs.org/ (done)
   - check examples:
@@ -20,16 +20,16 @@
   - toggle log in modal(done)
   - toggle sign up modal(done)
   - ...
-- navbar
-  - handle login
-    - show new menu when connected
-    - handle login button
-  - handle logout
-  - handle sign up
-  - add cart icon/button
-  - handle click on cart
-- create modals
-  - handle sign up
+* navbar
+  * handle login
+    * show new menu when connected
+    * handle login button
+  * handle logout
+  * handle sign up
+  * add cart icon/button
+  * handle click on cart
+* create modals
+  * handle sign up
     - create a dialog(done)
     - add sign up form(done)
   - log in(done)
