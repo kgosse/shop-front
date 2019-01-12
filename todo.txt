@@ -24,6 +24,9 @@
   * handle login
     - show new menu when connected(done)
     * handle login button
+      * create a wrapper for api communication
+      * create user file for api
+      * handle login in store
   * handle logout
   * handle sign up
   * add cart icon/button
