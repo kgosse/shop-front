@@ -5,7 +5,8 @@ const user = {
     token: '',
     name: 'Kévin',
     avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
-    roles: []
+    roles: [],
+    connected: false
   },
 
   mutations: {

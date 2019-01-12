@@ -22,7 +22,7 @@
   - ...
 * navbar
   * handle login
-    * show new menu when connected
+    - show new menu when connected(done)
     * handle login button
   * handle logout
   * handle sign up
