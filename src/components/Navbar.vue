@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     ...mapState({
-      connected: state => state.user.connected
+      connected: state => state.user.connected,
     })
   },
   methods: {

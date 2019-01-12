@@ -1,22 +1,18 @@
 <template>
  <el-dialog title="Log in" :visible.sync="isOpen" :before-close="showLoginModal">
-  <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="120px" class="demo-ruleForm">
+  <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="120px" class="demo-ruleForm">
     <el-form-item
       prop="email"
       label="Email"
-      :rules="[
-        { required: true, message: 'Please input email address', trigger: 'blur' },
-        { type: 'email', message: 'Please input correct email address', trigger: ['blur', 'change'] }
-      ]"
     >
-      <el-input v-model="ruleForm2.email"></el-input>
+      <el-input v-model="ruleForm.email"></el-input>
     </el-form-item>
     <el-form-item label="Password" prop="pass">
-      <el-input type="password" v-model="ruleForm2.pass" autocomplete="off"></el-input>
+      <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
     </el-form-item>
-    <el-form-item>
-      <el-button type="primary" @click="submitForm('ruleForm2')">Submit</el-button>
-      <el-button @click="resetForm('ruleForm2')">Reset</el-button>
+    <el-form-item >
+      <el-button type="primary" @click="submitForm()" :loading="loading">Submit</el-button>
+      <el-button @click="resetForm('ruleForm')">Reset</el-button>
     </el-form-item>
   </el-form>
 </el-dialog> 
@@ -28,58 +24,41 @@ import { mapState, mapActions } from 'vuex';
 export default {
   name: 'login-component',
   data() {
-      var validatePass = (rule, value, callback) => {
-        if (value === '') {
-          callback(new Error('Please input the password'));
-        } else {
-          if (this.ruleForm2.checkPass !== '') {
-            this.$refs.ruleForm2.validateField('checkPass');
-          }
-          callback();
-        }
-      };
-      var validatePass2 = (rule, value, callback) => {
-        if (value === '') {
-          callback(new Error('Please input the password again'));
-        } else if (value !== this.ruleForm2.pass) {
-          callback(new Error('Two inputs don\'t match!'));
-        } else {
-          callback();
-        }
-      };
       return {
-        ruleForm2: {
+        ruleForm: {
           pass: '',
           email: '',
         },
-        rules2: {
+        rules: {
           pass: [
-            { validator: validatePass, trigger: 'blur' }
+            { trigger: 'blur', required: true, message: 'Please input the password'}
           ],
-          checkPass: [
-            { validator: validatePass2, trigger: 'blur' }
-          ],
+          email: [
+            { required: true, message: 'Please input email address', trigger: 'blur' },
+            { type: 'email', message: 'Please input correct email address', trigger: ['blur', 'change'] }
+          ]
         },
-        dialogFormVisible: true,
       };
   },
   computed: {
     ...mapState({
-      isOpen: state => state.app.modals.login.isOpen
+      isOpen: state => state.app.modals.login.isOpen,
+      loading: state => state.user.login_request.requesting
     })
   },
   methods: {
     ...mapActions({
       showLoginModal: 'app/toggleLoginModal',
+      login: 'user/login',
     }),
-    submitForm(formName) {
-      this.$refs[formName].validate((valid) => {
-        if (valid) {
-          alert('submit!');
-        } else {
-          return false;
-        }
-      });
+    submitForm() {
+        this.login({email: this.email, password: this.pass});
+      // this.$refs[formName].validate((valid) => {
+      //   if (valid) {
+      //   } else {
+      //     return false;
+      //   }
+      // });
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
