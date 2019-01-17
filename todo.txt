@@ -21,12 +21,12 @@
   - toggle sign up modal(done)
   - ...
 * navbar
-  * handle login
+  - handle login(done)
     - show new menu when connected(done)
-    * handle login button
+    - handle login button(done)
       - create a wrapper for api communication(done)
       - create user file for api(done)
-      * handle login in store
+      - handle login in store(done)
   * handle logout
   * handle sign up
   * add cart icon/button

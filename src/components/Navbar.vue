@@ -7,7 +7,7 @@
   <template v-if="connected">
     <el-dropdown trigger="click" class="dropdown">
       <span class="el-dropdown-link">
-        Welcome Kévin<i class="el-icon-arrow-down el-icon--right"></i>
+        Welcome {{name}}<i class="el-icon-arrow-down el-icon--right"></i>
       </span>
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item>Wishlist</el-dropdown-item>
@@ -18,7 +18,7 @@
   <template v-else>
     <div>
       <el-button @click="showRegistrationModal({isOpen: true})">Sign up</el-button>  
-      <el-button @click="showLoginModal({isOpen: true})">Log in</el-button>
+      <el-button @click="showLoginModal({isOpen: true})" :loading="loading">Log in</el-button>
     </div>
   </template>
 </div>
@@ -32,7 +32,9 @@ export default {
   },
   computed: {
     ...mapState({
+      name: state => state.user.name,
       connected: state => state.user.connected,
+      loading: state => state.user.login_request.requesting
     })
   },
   methods: {

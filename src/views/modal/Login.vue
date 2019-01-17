@@ -52,7 +52,8 @@ export default {
       login: 'user/login',
     }),
     submitForm() {
-        this.login({email: this.email, password: this.pass});
+        this.login({email: this.ruleForm.email, password: this.ruleForm.pass});
+        this.resetForm('ruleForm');
       // this.$refs[formName].validate((valid) => {
       //   if (valid) {
       //   } else {

@@ -4,7 +4,7 @@ import {login} from '@/api/user'
 // initial state
 const state = {
   token: '',
-  name: 'Kévin',
+  name: 'Unknown',
   connected: false,
   login_request: {
     requesting: false,
@@ -53,8 +53,10 @@ const mutations = {
   },
   LOGIN_REQUEST_SUCCESS: (state, data) => {
     state.login_request.requesting = false;
+    state.connected = true;
     state.token = data.token;
     state.data = data.user;
+    state.name = data.user.name;
   },
 };
 
