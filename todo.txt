@@ -28,7 +28,9 @@
       - create user file for api(done)
       - handle login in store(done)
   - handle logout(done)
+  * handle error on login
   * handle sign up
+  * handle error on sign up
   * add cart icon/button
   * handle click on cart
 * create modals
