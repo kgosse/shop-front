@@ -27,6 +27,9 @@ const actions = {
     } catch (e) {
       commit("LOGIN_REQUEST_ERROR", e);
     }
+  },
+  logout: ({commit}) => {
+    commit("LOGOUT");
   }
 };
 
@@ -58,6 +61,12 @@ const mutations = {
     state.data = data.user;
     state.name = data.user.name;
   },
+  LOGOUT: (state) => {
+    state.token = '';
+    state.name = 'Unknown';
+    state.connected = false;
+    state.data = null;
+  }
 };
 
 export default {

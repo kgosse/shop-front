@@ -5,13 +5,13 @@
     <el-input placeholder="Please input" v-model="input"></el-input>
   </div>
   <template v-if="connected">
-    <el-dropdown trigger="click" class="dropdown">
+    <el-dropdown trigger="click" class="dropdown" @command="handleUserMenu">
       <span class="el-dropdown-link">
         Welcome {{name}}<i class="el-icon-arrow-down el-icon--right"></i>
       </span>
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item>Wishlist</el-dropdown-item>
-        <el-dropdown-item>Log out</el-dropdown-item>
+        <el-dropdown-item command="logout">Log out</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
   </template>
@@ -41,10 +41,17 @@ export default {
     ...mapActions({
       showRegistrationModal: 'app/toggleRegistrationModal',
       showLoginModal: 'app/toggleLoginModal',
-    })
-		// showSignupModal () {
-		// 	// this.$store.toggleRegistrationForm(true);
-		// }
+      logout: 'user/logout'
+    }),
+    handleUserMenu(menu) {
+      switch (menu) {
+        case 'logout':
+          this.logout();
+          break;
+        case 'wishlist':
+          break;
+      }      
+    }
   },
   data() {
     return {

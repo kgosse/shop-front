@@ -27,7 +27,7 @@
       - create a wrapper for api communication(done)
       - create user file for api(done)
       - handle login in store(done)
-  * handle logout
+  - handle logout(done)
   * handle sign up
   * add cart icon/button
   * handle click on cart
