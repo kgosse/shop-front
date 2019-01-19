@@ -1,5 +1,6 @@
 // import { getToken, setToken, removeToken } from '@/utils/auth'
-import {login} from '@/api/user'
+import {login} from '@/api/user';
+import { Notification } from 'element-ui';
 
 // initial state
 const state = {
@@ -26,6 +27,10 @@ const actions = {
       commit("LOGIN_REQUEST_SUCCESS", response.data);
     } catch (e) {
       commit("LOGIN_REQUEST_ERROR", e);
+      Notification.error({
+        title: 'Log in error',
+        message: e.toString()
+      });
     }
   },
   logout: ({commit}) => {
@@ -56,6 +61,7 @@ const mutations = {
   },
   LOGIN_REQUEST_SUCCESS: (state, data) => {
     state.login_request.requesting = false;
+    state.login_request.error = null;
     state.connected = true;
     state.token = data.token;
     state.data = data.user;
