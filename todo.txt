@@ -29,8 +29,8 @@
       - handle login in store(done)
   - handle logout(done)
   - handle error on login(done)
-  * handle sign up
-  * handle error on sign up
+  - handle sign up(done)
+  - handle error on sign up(done)
   * add cart icon/button
   * handle click on cart
 * create modals
