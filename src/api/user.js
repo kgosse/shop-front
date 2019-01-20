@@ -6,7 +6,15 @@ export async function login(credentials) {
     const response = await axios.post(LOGIN_ENDPOINT, credentials);
     return response
   } catch (error) {
-    console.error(error);
-    throw new Error("an error occured");
+    throw new Error(error.toString());
+  }
+}
+
+export async function signup(credentials) {
+  try {
+    const response = await axios.post(LOGIN_ENDPOINT, credentials);
+    return response
+  } catch (error) {
+    throw new Error(error.toString());
   }
 }

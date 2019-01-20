@@ -1,5 +1,5 @@
 // import { getToken, setToken, removeToken } from '@/utils/auth'
-import {login} from '@/api/user';
+import {login, signup} from '@/api/user';
 import { Notification } from 'element-ui';
 
 // initial state
@@ -8,6 +8,10 @@ const state = {
   name: 'Unknown',
   connected: false,
   login_request: {
+    requesting: false,
+    error: null
+  },
+  signup_request: {
     requesting: false,
     error: null
   },
@@ -28,7 +32,26 @@ const actions = {
     } catch (e) {
       commit("LOGIN_REQUEST_ERROR", e);
       Notification.error({
-        title: 'Log in error',
+        title: 'Log in',
+        message: e.toString()
+      });
+    }
+  },
+  signup: async ({commit}, payload) => {
+    commit("SIGNUP_REQUEST_START");
+    try {
+      const response = await signup(payload);
+      // eslint-disable-next-line
+      console.log(response);
+      commit("SIGNUP_REQUEST_SUCCESS", response.data);
+      Notification.success({
+        title: 'Sign up',
+        message: "user successfully created"
+      });
+    } catch (e) {
+      commit("SIGNUP_REQUEST_ERROR", e);
+      Notification.error({
+        title: 'Sign up',
         message: e.toString()
       });
     }
@@ -62,6 +85,21 @@ const mutations = {
   LOGIN_REQUEST_SUCCESS: (state, data) => {
     state.login_request.requesting = false;
     state.login_request.error = null;
+    state.connected = true;
+    state.token = data.token;
+    state.data = data.user;
+    state.name = data.user.name;
+  },
+ SIGNUP_REQUEST_ERROR: (state, error) => {
+    state.signup_request.requesting = false;
+    state.signup_request.error = error;
+  },
+  SIGNUP_REQUEST_START: state => {
+    state.signup_request.requesting = true;
+  },
+  SIGNUP_REQUEST_SUCCESS: (state, data) => {
+    state.signup_request.requesting = false;
+    state.signup_request.error = null;
     state.connected = true;
     state.token = data.token;
     state.data = data.user;
