@@ -17,8 +17,8 @@
   </template>
   <template v-else>
     <div>
-      <el-button @click="showRegistrationModal({isOpen: true})">Sign up</el-button>  
-      <el-button @click="showLoginModal({isOpen: true})" :loading="loading">Log in</el-button>
+      <el-button @click="showRegistrationModal({isOpen: true})" :loading="isSigninup">Sign up</el-button>  
+      <el-button @click="showLoginModal({isOpen: true})" :loading="isLogingin">Log in</el-button>
     </div>
   </template>
 </div>
@@ -34,7 +34,8 @@ export default {
     ...mapState({
       name: state => state.user.name,
       connected: state => state.user.connected,
-      loading: state => state.user.login_request.requesting
+      isLogingin: state => state.user.login_request.requesting,
+      isSigninup: state => state.user.login_request.requesting,
     })
   },
   methods: {

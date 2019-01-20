@@ -17,7 +17,7 @@
       <el-input type="password" v-model="registrationForm.checkPass" autocomplete="off"></el-input>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="submitForm('registrationForm')">Submit</el-button>
+      <el-button type="primary" @click="submitForm('registrationForm')" :loading="loading">Submit</el-button>
       <el-button @click="resetForm('registrationForm')">Reset</el-button>
     </el-form-item>
   </el-form>
@@ -75,17 +75,26 @@ export default {
   },
   computed: {
     ...mapState({
-      isOpen: state => state.app.modals.registration.isOpen
+      isOpen: state => state.app.modals.registration.isOpen,
+      loading: state => state.user.signup_request.requesting,
     })
   },
   methods: {
     ...mapActions({
       showRegistrationModal: 'app/toggleRegistrationModal',
+      signup: 'user/signup',
     }),
     submitForm(formName) {
+      const {name, pass, checkPass, email} = this.registrationForm;
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert('submit!');
+          this.signup({
+            email, 
+            name, 
+            password: pass, 
+            confirm_password: checkPass
+          });
+          this.resetForm(formName);
         } else {
           return false;
         }

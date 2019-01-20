@@ -90,20 +90,16 @@ const mutations = {
     state.data = data.user;
     state.name = data.user.name;
   },
- SIGNUP_REQUEST_ERROR: (state, error) => {
+  SIGNUP_REQUEST_ERROR: (state, error) => {
     state.signup_request.requesting = false;
     state.signup_request.error = error;
   },
   SIGNUP_REQUEST_START: state => {
     state.signup_request.requesting = true;
   },
-  SIGNUP_REQUEST_SUCCESS: (state, data) => {
+  SIGNUP_REQUEST_SUCCESS: (state) => {
     state.signup_request.requesting = false;
     state.signup_request.error = null;
-    state.connected = true;
-    state.token = data.token;
-    state.data = data.user;
-    state.name = data.user.name;
   },
   LOGOUT: (state) => {
     state.token = '';
